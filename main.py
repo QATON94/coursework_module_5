@@ -1,9 +1,10 @@
 from pprint import pprint
 
-from config import JSON_VACANCY
+from config import config
 import requests
 from config import HH_URL
 from connector.api_connect import hh_get_resource
+from database.create_database import create_database, create_table, save_data_to_database
 
 
 def main() -> None:
@@ -39,7 +40,14 @@ def main() -> None:
     # data: list[dict] = response.json()
     # pprint(data)
     data = hh_get_resource()
-    pprint(data)
+    # pprint(data)
+
+    params = config()
+    create_database('hh', params)
+    create_table('hh', params)
+    save_data_to_database(data, 'hh', params)
+
+
 if __name__ == '__main__':
     main()
 
