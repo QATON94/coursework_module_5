@@ -19,19 +19,15 @@ def hh_get_resource():
         for item in data_items:
             salary = validate_salary(item['salary'])
             vacancy = {'vacancy_id': item['id'], 'company_id': item['employer']['id'], 'vacancy_name': item['name'],
-                       'city': item['area']['name'], 'solary': salary, 'description': item['snippet']['requirement'],
-                       'work_schedule': item['schedule']['name']}
+                       'city': item['area']['name'], 'salary': salary, 'description': item['snippet']['requirement'],
+                       'work_schedule': item['schedule']['name'], 'url': item['alternate_url'],}
             company_data.append(vacancy)
     return company_data
 
 
-# 'Salary from': item['salary']['from'], 'Salary to': item['salary']['to']
-
 def validate_salary(salary: dict | None) -> tuple[int, int]:
     """
     Валидация зарплаты
-    :param salary: Зарплата
-    :return: Возвращает зарплату
     """
     if salary is not None:
         if salary['from'] is not None and salary['to'] is not None:

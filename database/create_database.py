@@ -36,10 +36,11 @@ def create_table(database_name: str, params: dict) -> None:
             vacancy_id SERIAL PRIMARY KEY, 
             company_id INT REFERENCES companies(company_id), 
             vacancy_name VARCHAR(255),
-            solary INT, 
+            salary INT, 
             city VARCHAR(255), 
             description TEXT, 
-            work_schedule VARCHAR(255)
+            work_schedule VARCHAR(255),
+            url TEXT
             )
             """)
 
@@ -64,10 +65,10 @@ def save_data_to_database(data: list[dict], database_name: str, params: dict) ->
 
         for row in data:
             cur.execute("""
-                INSERT INTO vacancy (vacancy_id, company_id, vacancy_name, solary,  city, description, work_schedule)
-                VALUES (%s, %s, %s, %s, %s, %s, %s)
-                """, (row['vacancy_id'],row['company_id'], row['vacancy_name'], row['solary'], row['city'],
-                      row['description'], row['work_schedule']))
+                INSERT INTO vacancy (vacancy_id, company_id, vacancy_name, salary,  city, description, work_schedule, url)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                """, (row['vacancy_id'],row['company_id'], row['vacancy_name'], row['salary'], row['city'],
+                      row['description'], row['work_schedule'], row['url']))
 
     conn.commit()
     conn.close()
