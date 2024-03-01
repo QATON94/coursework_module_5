@@ -4,7 +4,7 @@ import psycopg2
 class DBManager:
 
     def get_companies_and_vacancies_count(
-        self, database_name: str, params: dict
+            self, database_name: str, params: dict
     ) -> list[dict]:
         """
         Получает список всех компаний и количество вакансий у каждой компании.
@@ -76,7 +76,7 @@ class DBManager:
         return round(avg_salary, 2)
 
     def get_vacancies_with_higher_salary(
-        self, database_name: str, params: dict
+            self, database_name: str, params: dict
     ) -> list[dict]:
         """
         Получает список всех вакансий, у которых зарплата выше средней по всем вакансиям.
@@ -108,8 +108,8 @@ class DBManager:
         return bd_rows
 
     def get_vacancies_with_keyword(
-        self, database_name: str, params: dict, text: str
-    ) -> list[dict]:
+            self, database_name: str, params: dict, text: str
+    ) -> list | list[dict]:
         """
         Получает список всех вакансий, в названии которых содержатся переданные в метод слова
         """

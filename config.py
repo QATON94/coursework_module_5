@@ -1,15 +1,12 @@
-import os
 from configparser import ConfigParser
 
 HH_URL = 'https://api.hh.ru/vacancies'
 
-# ROOT_PATH = Path(__file__).parent
-# JSON_VACANCY = os.path.abspath('data/data_vacancies.json')
-# TEST_JSON = os.path.abspath('test_vacancy.py')
+db_name = 'hh'
 
 company_list = [{'employer_id': '68587'}, {'employer_id': '9498120'}, {'employer_id': '3529'}, {'employer_id': '67611'},
-                {'employer_id': '5441625'}, {'employer_id': '78638'}, {'employer_id': '5744540'}, {'employer_id': '2730053'},
-                {'employer_id': '1008541'}, {'employer_id': '9623098'}]
+                {'employer_id': '5441625'}, {'employer_id': '78638'}, {'employer_id': '5744540'},
+                {'employer_id': '2730053'}, {'employer_id': '1008541'}, {'employer_id': '9623098'}]
 
 db_company = [{'company_id': '68587', 'company_name': 'ОЭЗ «АЛАБУГА»'},
               {'company_id': '9498120', 'company_name': 'Яндекс Команда для бизнеса'},
